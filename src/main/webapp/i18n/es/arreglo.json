@@ -1,0 +1,36 @@
+{
+  "appMusicApp": {
+    "arreglo": {
+      "home": {
+        "title": "Arreglos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Arreglo",
+        "createOrEditLabel": "Crear o editar Arreglo",
+        "notFound": "Ningún Arreglos encontrado"
+      },
+      "created": "Un nuevo Arreglo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Arreglo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Arreglo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Arreglo {{ id }}?"
+      },
+      "detail": {
+        "title": "Arreglo"
+      },
+      "id": "ID",
+      "rutCliente": "Rut Cliente",
+      "nombre": "Nombre",
+      "telefono": "Telefono",
+      "fechaRecepcion": "Fecha Recepcion",
+      "fechaEntrega": "Fecha Entrega",
+      "nombreInstrumento": "Nombre Instrumento",
+      "marca": "Marca",
+      "modelo": "Modelo",
+      "numeroSerie": "Numero Serie",
+      "diagnostico": "Diagnostico",
+      "procedimiento": "Procedimiento",
+      "observaciones": "Observaciones",
+      "valor": "Valor"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+
+
+
+entity Arreglo {
+    rutCliente String
+    nombre String
+    telefono String
+    fechaRecepcion Instant
+    fechaEntrega Instant
+    nombreInstrumento String
+    marca String
+    modelo String
+    numeroSerie String
+    diagnostico String
+    procedimiento String
+    observaciones String
+    valor String
+}
+
+
+entity UserExtra {
+    rut String
+    telefono Integer
+}
+
+
+/**
+ * One to one relationship.
+ */
+relationship OneToOne {
+    UserExtra to User
+}
+
+
+paginate * with pagination
+dto * with mapstruct
+service all with serviceClass
+filter all

@@ -1,0 +1,192 @@
+<div>
+  <h2 id="page-heading" data-cy="ArregloHeading">
+    <span jhiTranslate="appMusicApp.arreglo.home.title">Arreglos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="appMusicApp.arreglo.home.refreshListLabel">Refrescar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-arreglo"
+        [routerLink]="['/arreglo/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="appMusicApp.arreglo.home.createLabel"> Crear nuevo Arreglo </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="arreglos?.length === 0">
+    <span jhiTranslate="appMusicApp.arreglo.home.notFound">Ningún Arreglos encontrado</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="arreglos && arreglos.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="rutCliente">
+            <div class="d-flex">
+              <span jhiTranslate="appMusicApp.arreglo.rutCliente">Rut Cliente</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nombre">
+            <div class="d-flex">
+              <span jhiTranslate="appMusicApp.arreglo.nombre">Nombre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="telefono">
+            <div class="d-flex">
+              <span jhiTranslate="appMusicApp.arreglo.telefono">Telefono</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="fechaRecepcion">
+            <div class="d-flex">
+              <span jhiTranslate="appMusicApp.arreglo.fechaRecepcion">Fecha Recepcion</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="fechaEntrega">
+            <div class="d-flex">
+              <span jhiTranslate="appMusicApp.arreglo.fechaEntrega">Fecha Entrega</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nombreInstrumento">
+            <div class="d-flex">
+              <span jhiTranslate="appMusicApp.arreglo.nombreInstrumento">Nombre Instrumento</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="marca">
+            <div class="d-flex">
+              <span jhiTranslate="appMusicApp.arreglo.marca">Marca</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="modelo">
+            <div class="d-flex">
+              <span jhiTranslate="appMusicApp.arreglo.modelo">Modelo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numeroSerie">
+            <div class="d-flex">
+              <span jhiTranslate="appMusicApp.arreglo.numeroSerie">Numero Serie</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="diagnostico">
+            <div class="d-flex">
+              <span jhiTranslate="appMusicApp.arreglo.diagnostico">Diagnostico</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="procedimiento">
+            <div class="d-flex">
+              <span jhiTranslate="appMusicApp.arreglo.procedimiento">Procedimiento</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="observaciones">
+            <div class="d-flex">
+              <span jhiTranslate="appMusicApp.arreglo.observaciones">Observaciones</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valor">
+            <div class="d-flex">
+              <span jhiTranslate="appMusicApp.arreglo.valor">Valor</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let arreglo of arreglos; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/arreglo', arreglo.id, 'view']">{{ arreglo.id }}</a>
+          </td>
+          <td>{{ arreglo.rutCliente }}</td>
+          <td>{{ arreglo.nombre }}</td>
+          <td>{{ arreglo.telefono }}</td>
+          <td>{{ arreglo.fechaRecepcion | formatMediumDatetime }}</td>
+          <td>{{ arreglo.fechaEntrega | formatMediumDatetime }}</td>
+          <td>{{ arreglo.nombreInstrumento }}</td>
+          <td>{{ arreglo.marca }}</td>
+          <td>{{ arreglo.modelo }}</td>
+          <td>{{ arreglo.numeroSerie }}</td>
+          <td>{{ arreglo.diagnostico }}</td>
+          <td>{{ arreglo.procedimiento }}</td>
+          <td>{{ arreglo.observaciones }}</td>
+          <td>{{ arreglo.valor }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/arreglo', arreglo.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Vista</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/arreglo', arreglo.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+              </button>
+
+              <button type="submit" (click)="delete(arreglo)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Eliminar</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="arreglos && arreglos.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

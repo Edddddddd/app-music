@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="arreglo">
+      <h2 data-cy="arregloDetailsHeading"><span jhiTranslate="appMusicApp.arreglo.detail.title">Arreglo</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ arreglo.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="appMusicApp.arreglo.rutCliente">Rut Cliente</span></dt>
+        <dd>
+          <span>{{ arreglo.rutCliente }}</span>
+        </dd>
+        <dt><span jhiTranslate="appMusicApp.arreglo.nombre">Nombre</span></dt>
+        <dd>
+          <span>{{ arreglo.nombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="appMusicApp.arreglo.telefono">Telefono</span></dt>
+        <dd>
+          <span>{{ arreglo.telefono }}</span>
+        </dd>
+        <dt><span jhiTranslate="appMusicApp.arreglo.fechaRecepcion">Fecha Recepcion</span></dt>
+        <dd>
+          <span>{{ arreglo.fechaRecepcion | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="appMusicApp.arreglo.fechaEntrega">Fecha Entrega</span></dt>
+        <dd>
+          <span>{{ arreglo.fechaEntrega | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="appMusicApp.arreglo.nombreInstrumento">Nombre Instrumento</span></dt>
+        <dd>
+          <span>{{ arreglo.nombreInstrumento }}</span>
+        </dd>
+        <dt><span jhiTranslate="appMusicApp.arreglo.marca">Marca</span></dt>
+        <dd>
+          <span>{{ arreglo.marca }}</span>
+        </dd>
+        <dt><span jhiTranslate="appMusicApp.arreglo.modelo">Modelo</span></dt>
+        <dd>
+          <span>{{ arreglo.modelo }}</span>
+        </dd>
+        <dt><span jhiTranslate="appMusicApp.arreglo.numeroSerie">Numero Serie</span></dt>
+        <dd>
+          <span>{{ arreglo.numeroSerie }}</span>
+        </dd>
+        <dt><span jhiTranslate="appMusicApp.arreglo.diagnostico">Diagnostico</span></dt>
+        <dd>
+          <span>{{ arreglo.diagnostico }}</span>
+        </dd>
+        <dt><span jhiTranslate="appMusicApp.arreglo.procedimiento">Procedimiento</span></dt>
+        <dd>
+          <span>{{ arreglo.procedimiento }}</span>
+        </dd>
+        <dt><span jhiTranslate="appMusicApp.arreglo.observaciones">Observaciones</span></dt>
+        <dd>
+          <span>{{ arreglo.observaciones }}</span>
+        </dd>
+        <dt><span jhiTranslate="appMusicApp.arreglo.valor">Valor</span></dt>
+        <dd>
+          <span>{{ arreglo.valor }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/arreglo', arreglo.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

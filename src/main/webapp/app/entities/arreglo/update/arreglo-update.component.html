@@ -1,0 +1,163 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-arreglo-heading" data-cy="ArregloCreateUpdateHeading" jhiTranslate="appMusicApp.arreglo.home.createOrEditLabel">
+        Crear o editar Arreglo
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="appMusicApp.arreglo.rutCliente" for="field_rutCliente">Rut Cliente</label>
+          <input
+            type="text"
+            class="form-control"
+            name="rutCliente"
+            id="field_rutCliente"
+            data-cy="rutCliente"
+            formControlName="rutCliente"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="appMusicApp.arreglo.nombre" for="field_nombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="field_nombre" data-cy="nombre" formControlName="nombre" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="appMusicApp.arreglo.telefono" for="field_telefono">Telefono</label>
+          <input type="text" class="form-control" name="telefono" id="field_telefono" data-cy="telefono" formControlName="telefono" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="appMusicApp.arreglo.fechaRecepcion" for="field_fechaRecepcion">Fecha Recepcion</label>
+          <div class="d-flex">
+            <input
+              id="field_fechaRecepcion"
+              data-cy="fechaRecepcion"
+              type="datetime-local"
+              class="form-control"
+              name="fechaRecepcion"
+              formControlName="fechaRecepcion"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="appMusicApp.arreglo.fechaEntrega" for="field_fechaEntrega">Fecha Entrega</label>
+          <div class="d-flex">
+            <input
+              id="field_fechaEntrega"
+              data-cy="fechaEntrega"
+              type="datetime-local"
+              class="form-control"
+              name="fechaEntrega"
+              formControlName="fechaEntrega"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="appMusicApp.arreglo.nombreInstrumento" for="field_nombreInstrumento"
+            >Nombre Instrumento</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombreInstrumento"
+            id="field_nombreInstrumento"
+            data-cy="nombreInstrumento"
+            formControlName="nombreInstrumento"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="appMusicApp.arreglo.marca" for="field_marca">Marca</label>
+          <input type="text" class="form-control" name="marca" id="field_marca" data-cy="marca" formControlName="marca" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="appMusicApp.arreglo.modelo" for="field_modelo">Modelo</label>
+          <input type="text" class="form-control" name="modelo" id="field_modelo" data-cy="modelo" formControlName="modelo" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="appMusicApp.arreglo.numeroSerie" for="field_numeroSerie">Numero Serie</label>
+          <input
+            type="text"
+            class="form-control"
+            name="numeroSerie"
+            id="field_numeroSerie"
+            data-cy="numeroSerie"
+            formControlName="numeroSerie"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="appMusicApp.arreglo.diagnostico" for="field_diagnostico">Diagnostico</label>
+          <input
+            type="text"
+            class="form-control"
+            name="diagnostico"
+            id="field_diagnostico"
+            data-cy="diagnostico"
+            formControlName="diagnostico"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="appMusicApp.arreglo.procedimiento" for="field_procedimiento">Procedimiento</label>
+          <input
+            type="text"
+            class="form-control"
+            name="procedimiento"
+            id="field_procedimiento"
+            data-cy="procedimiento"
+            formControlName="procedimiento"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="appMusicApp.arreglo.observaciones" for="field_observaciones">Observaciones</label>
+          <input
+            type="text"
+            class="form-control"
+            name="observaciones"
+            id="field_observaciones"
+            data-cy="observaciones"
+            formControlName="observaciones"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="appMusicApp.arreglo.valor" for="field_valor">Valor</label>
+          <input type="text" class="form-control" name="valor" id="field_valor" data-cy="valor" formControlName="valor" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Guardar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+{
+  "applications": "*",
+  "changelogDate": "20230928015735",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "arreglo",
+  "fields": [
+    {
+      "fieldName": "rutCliente",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fechaRecepcion",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "fechaEntrega",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "nombreInstrumento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "marca",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modelo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroSerie",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "diagnostico",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "procedimiento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "observaciones",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valor",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Arreglo",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}
